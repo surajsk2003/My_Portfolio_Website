@@ -16,3 +16,18 @@ document.getElementById("contactForm").addEventListener("submit", async function
     const result = await response.json();
     document.getElementById("responseMessage").textContent = result.response || result.error;
 });
+
+// JavaScript for Typing Effect
+
+
+// live animation
+
+const bgAnimation = document.getElementById('bgAnimation');
+
+const numberOfColorBoxes = 400;
+
+for (let i = 0; i < numberOfColorBoxes; i++) {
+    const colorBox = document.createElement('div');
+    colorBox.classList.add('colorBox');
+    bgAnimation.append(colorBox)
+}

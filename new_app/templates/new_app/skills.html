@@ -1,0 +1,95 @@
+
+{% extends 'new_app/base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <p>Here are some of my major skills:</p>
+        <div class="skills-container">
+            <div class="skill-box" onclick="toggleSubSkills('ml')">
+                Machine Learning
+                <div class="sub-skills" id="ml">
+                    <div class="sub-skill-box">TensorFlow</div>
+                    <div class="sub-skill-box">Keras</div>
+                    <div class="sub-skill-box">scikit-learn</div>
+                    <div class="sub-skill-box">Hugging Face</div>
+                    <div class="sub-skill-box">spaCy</div>
+                    <div class="sub-skill-box">Rasa</div>
+                    <div class="sub-skill-box">RAG</div>
+                    <div class="sub-skill-box">NLTK</div>
+                </div>
+            </div>
+
+            <div class="skill-box" onclick="toggleSubSkills('webdev')">
+                Software Development
+                <div class="sub-skills" id="webdev">
+                    <div class="sub-skill-box">Python</div>
+                    <div class="sub-skill-box">Django</div>
+                    <div class="sub-skill-box">React.js</div>
+                    <div class="sub-skill-box">Node.js</div>
+                    <div class="sub-skill-box">TypeScript</div>
+                    <div class="sub-skill-box">HTML</div>
+                    <div class="sub-skill-box">CSS</div>
+                </div>
+            </div>
+
+            <div class="skill-box" onclick="toggleSubSkills('cloud')">
+                Cloud Platforms
+                <div class="sub-skills" id="cloud">
+                    <div class="sub-skill-box">Google Cloud</div>
+                    <div class="sub-skill-box">Microsoft Azure</div>
+                </div>
+            </div>
+
+            <div class="skill-box" onclick="toggleSubSkills('datascience')">
+                Data Science
+                <div class="sub-skills" id="datascience">
+                    <div class="sub-skill-box">Pandas</div>
+                    <div class="sub-skill-box">NumPy</div>
+                    <div class="sub-skill-box">Matplotlib</div>
+                    <div class="sub-skill-box">Seaborn</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // To track the currently opened skill
+        let currentOpen = null;
+
+        // Function to toggle sub-skills
+        function toggleSubSkills(skillId) {
+            const subSkills = document.getElementById(skillId);
+
+            // If a skill is already open, close it
+            if (currentOpen && currentOpen !== subSkills) {
+                currentOpen.style.display = "none";
+                currentOpen.style.maxHeight = null;
+                currentOpen.style.padding = "0px";
+            }
+
+            // Toggle the clicked skill
+            if (subSkills.style.display === "none" || subSkills.style.display === "") {
+                subSkills.style.display = "block";
+                subSkills.style.maxHeight = subSkills.scrollHeight + "px"; // Open the skill box
+                subSkills.style.padding = "10px";
+                currentOpen = subSkills; // Set the current open skill
+            } else {
+                subSkills.style.display = "none";
+                subSkills.style.maxHeight = null;
+                subSkills.style.padding = "0px"; // Close the skill box
+                currentOpen = null;
+            }
+        }
+
+        
+    </script>
+
+{% endblock content %}
+

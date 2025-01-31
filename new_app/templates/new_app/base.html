@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Portfolio{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'new_app/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <style>
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+            z-index: -1; /* Ensures particles are in the background */
+        }
+    </style>
+</head>
+<body>
+    {% comment %} <!-- live animation -->
+    <div class="bgAnimation" id="bgAnimation">
+        <div class="backgroundAmim">
+            
+        </div>
+    </div> {% endcomment %}
+
+    <!-- Navigation Bar -->
+     
+
+
+    
+    <div class="floating-ball"></div>
+
+
+    <!-- Particle.js Background -->
+    <div id="particles-js"></div>
+    <script>
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                shape: { type: "circle", stroke: { width: 0, color: "#000000" }, polygon: { nb_sides: 5 } },
+                opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1 } },
+                size: { value: 5, random: true, anim: { enable: true, speed: 40, size_min: 0.1 } },
+                line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 6, direction: "none", random: false, straight: false, out_mode: "out" }
+            }
+        });
+    </script>
+
+    <!-- Header Section -->
+    <header>
+        <div class="button-section">
+            <!-- Button for Smooth Scrolling and Link Navigation -->
+            <button onclick="handleHomeNavigation();">Home</button>
+
+            <a href="{% url 'about' %}"><span class="nav-btn">About</span></a>
+            <a href="{% url 'skills' %}"><span class="nav-btn">Skills</span></a>
+            <a href="{% url 'projects' %}"><span class="nav-btn">Projects</span></a>
+            <a href="{% url 'contact' %}"><span class="nav-btn">Contact</span></a>
+        </div>
+        
+        <div class="social-media-icons">
+            <a href="#"><img src="{% static 'new_app/images/profile_picture.jpeg' %}" alt="Profile"></a>
+            <a href="https://github.com/surajsk2003" target="_blank">
+                <img src="{% static 'new_app/images/github.png' %}" alt="GitHub">
+            </a>
+            <a href="https://www.linkedin.com/in/suraj-singh-96b45220a/" target="_blank">
+                <img src="{% static 'new_app/images/linkdin.png' %}" alt="LinkedIn">
+            </a>
+        </div>
+        <script>
+            function handleHomeNavigation() {
+                // Check if the current page is the homepage or another page
+                if (window.location.pathname === '/') {
+                    // Smooth scroll to the home section if on the same page
+                    document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    // Navigate to the home page if not on the homepage
+                    window.location.href = '{% url "home" %}';
+                }
+            }
+        </script>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer Section -->
+    <footer id="Footer">
+        <div class="general">
+            <h1>General</h1>
+            <ul>
+                <li><a href="{% url 'contact' %}">Contact Me</a></li>
+                <li><a href="{% url 'about' %}">My Life</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">BTech | EEE | NITK</a></li>
+            </ul>
+        </div>
+
+        <div class="important-links-certificates">
+            <h1>Important Links & Certifications</h1>
+            <ul>
+                <li><a href="{% static 'new_app/resume/my_resume.pdf' %}" target="_blank">My Resume</a></li>
+                <li><a href="https://github.com/surajsk2003" target="_blank">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/suraj-singh-96b45220a/" target="_blank">LinkedIn</a></li>
+                <li><a href="https://www.kaggle.com/surajnitk2021" target="_blank">Kaggle</a></li>
+            </ul>
+            <h2>Certifications</h2>
+            <ul>
+                <li><a href="#">100 Days of Python by Angela Yu</a></li>
+                <li><a href="#">Machine Learning by Stanford University (Andrew Ng)</a></li>
+                <li><a href="#">Deep Learning Specialization by DeepLearning.AI</a></li>
+                <li><a href="#">Generative AI with Large Language Models by DeepLearning.AI</a></li>
+                <li><a href="#">Data Analytics by Google</a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+</html>

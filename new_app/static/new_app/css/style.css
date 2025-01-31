@@ -1,6 +1,21 @@
 /* Button styles */
 /* Ensures the header takes the full width */
+body {
+    background-image: url("{% static 'new_app/images/theeeee.jpg' %}");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #630a0a;
+    position: relative;
+}
+
+
 header {
+    
     width: 100%;
     display: flex;
     justify-content: space-between; /* Aligns icons to the left and buttons to the right */
@@ -9,10 +24,14 @@ header {
     align-items: center; /* Centers the content vertically */
 }
 
+
+
+
 .social-media-icons {
     display: flex;
     gap: 15px; /* Adds spacing between the icons */
     align-items: center;
+    margin-right: 20px; /* Pushes the icons to the left */
 }
 
 .social-media-icons a {
@@ -26,26 +45,57 @@ header img {
     object-fit: cover;
 }
 
-/* Button section alignment and design */
+/* Button Section Alignment */
 .button-section {
     display: flex;
-    gap: 15px; /* Adds spacing between the buttons */
+    gap: 15px;  /* Set spacing between buttons to 15px */
     align-items: center;
+    justify-content: center;  /* Center the buttons */
+    margin: 0; /* Reset any unwanted margin */
+    padding: 0; /* Reset any padding */
 }
 
-/* Button styling */
-button {
-    background: linear-gradient(45deg, #007bff, #00b3ff); 
-    color: white;
+/* Remove default link styling */
+.button-section a {
+    text-decoration: none;
+}
+
+/* Animated button hover effect */
+.button-section button,
+.nav-btn {
+    border: none;
     padding: 10px 20px;
+    font-size: 16px;
+    background: linear-gradient(45deg, #007bff, #00b3ff);
+    color: white;
+    cursor: pointer;
     border-radius: 5px;
-    transition: 0.3s;
-    border: none; /* Removes the default button border */
-    cursor: pointer; /* Ensures the button looks clickable */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Added transition */
 }
 
-button:hover {
-    transform: translateY(-5px);
+.button-section button:hover,
+.nav-btn:hover {
+    transform: scale(1.1) translateY(-5px); /* Scale the button a little */
+    box-shadow: 0 10px 20px rgba(120, 124, 129, 0.3);
+    background-color: #0056b3; /* Darken on hover */
+}
+
+
+/* Styling for Nav Buttons when inside links */
+.nav-btn {
+    display: inline-block;  /* Keeps buttons inline */
+    background-color: transparent;  /* No solid background */
+    border-radius: 5px;  /* Keeps consistent border radius */
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+/* Hover effect for nav buttons */
+.nav-btn:hover {
+    background-color: #0056b3;  /* Darken on hover */
     box-shadow: 0 10px 20px rgba(120, 124, 129, 0.3);
 }
 
@@ -53,7 +103,7 @@ button:hover {
 form {
     max-width: 500px;
     margin: auto;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(110, 232, 169, 0.9);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -65,7 +115,7 @@ form input, form textarea {
     padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
-    border: 1px solid #ddd;
+    border: 1px solid #050505;
 }
 
 form button {
@@ -80,7 +130,7 @@ form button {
 }
 
 form button:hover {
-    background-color: #0056b3;
+    background-color: #2d078d;
     box-shadow: 0 10px 20px rgba(120, 124, 129, 0.3);
 }
 
@@ -95,7 +145,7 @@ form button:hover {
 section {
     margin: 30px 0;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: #FFFDD0;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -137,4 +187,579 @@ section p {
         width: 100%;
         margin-top: 20px; /* Reduces space between form and header */
     }
+}
+
+/* Home Section Styling */
+
+/* Styling for the home-section div */
+.home-section {
+    width: 436px;  /* Fixed width */
+    height: 224px; /* Fixed height */
+    margin: 96px auto 30px auto; /* Top: 96px, Left and Right: auto (centered), Bottom: 30px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    box-sizing: border-box;
+    padding: 0;
+    border: 0;
+}
+
+
+/* Styling for the Home Section */
+
+
+/* Styling for the Home Section */
+#home {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Styling for the h1 element */
+#typed-text {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #e8a20d;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* About Section Styles */
+#about {
+    padding: 20px;
+    background-color: #84debe;
+    text-align: center;
+}
+
+.about-container h2 {
+    font-size: 2em;
+    color: #070606;
+}
+
+.about-container p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #0a0808;
+}
+
+.about-rest {
+    margin-top: 40px;
+}
+
+.phases-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.phase-card {
+    position: relative;
+    height: 400px;
+    width: 23%;
+    background-color: #FFFDD0;
+    border: 2px solid #0e0e0e;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    perspective: 1000px; /* This helps in 3D rotation effect */
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Front of the card (Year section) */
+.phase-year {
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    padding: 60px;
+    font-size: 1.5em;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Description (Back side of the card) */
+.phase-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+
+/* Phase year description below the year section */
+.phase-year-description {
+    position: absolute;
+    bottom: 0px;  /* Adjust this value to position it below the 'year' section */
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 70px;
+    background-color: #ec7a29;
+    color: white;
+    font-size: 1.1em;
+    font-weight: normal;
+    border-radius: 0 0 8px 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+/* Hover Effect (rotate the card 180 degrees) */
+.phase-card:hover .phase-year {
+    transform: rotateY(180deg);
+}
+
+.phase-card:hover .phase-description {
+    transform: rotateY(0);
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .phases-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .phase-card {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+
+
+/* Skills Section */
+#skills {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #e5dc71;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Skills Container */
+.skills-container {
+    display: flex;
+    flex-direction: row; /* This arranges the skill boxes horizontally */
+    gap: 15px;
+    flex-wrap: wrap; /* Allows the boxes to wrap if the screen is too narrow */
+}
+
+
+/* Skill Box Styling */
+.skill-box {
+    background-color: #c899e9;
+    margin-left: auto;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #020202;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.skill-box:hover {
+    background-color: #58d983;
+}
+
+/* Sub-skills Container */
+.sub-skills {
+    display: none; /* Initially hidden */
+    padding-left: 20px;
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+/* Sub-skill Box Styling */
+.sub-skill-box {
+    padding: 8px;
+    font-size: 1rem;
+    color: #0d0f0f;
+    margin-bottom: 8px;
+    background-color: #f8f6efc6;
+    border: 1px solid #100c0c;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sub-skill-box:hover {
+    background-color: #f0f0f0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+    #skills {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .skills-container {
+        gap: 10px;
+    }
+
+    .skill-box {
+        padding: 12px;
+    }
+}
+
+
+/* Projects Section */
+#projects {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #a3d458;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#projects h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+#projects p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Projects Container */
+.projects-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap; /* Makes it responsive */
+}
+
+/* Project Card */
+.project-card {
+    background-color: #d971ec;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(169, 147, 147, 0.1);
+    width: 30%; /* Adjust width of the cards */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+/* Project Header */
+.project-header h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Project Description */
+.project-description p {
+    font-size: 1rem;
+    color: #110f0f;
+    margin-bottom: 15px;
+}
+
+/* Project Links */
+.project-links a {
+    font-size: 1rem;
+    color: #3908dc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project-links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .projects-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .project-card {
+        width: 100%; /* Cards will take full width on smaller screens */
+    }
+}
+
+#Footer {
+    background-color: #bcc0bc; /* Dark theme */
+    color: #070606;
+    padding: 40px 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-family: 'Arial', sans-serif;
+}
+
+/* General & Links Section */
+.general, .important-links-certificates {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+.general h1, .important-links-certificates h1 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #ffcc00; /* Highlighted heading color */
+}
+
+.general p {
+    font-size: 14px;
+    color: #151313;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #170f0f;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+ul li a:hover {
+    color: #ffcc00; /* Hover effect */
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #Footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 5%;
+    }
+
+    .footer-icons img {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Intro Section Styles */
+#home {
+    background: url("{% static 'new_app/images/background.jpg' %}") no-repeat center center/cover; 
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+#typed-text {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+#home p {
+    font-size: 20px;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Bio Section Styles */
+#bio-section {
+    background-color: #7db8c2;
+    padding: 60px 20px;
+    margin-top: -50px; /* Pulling up to reduce gap between intro and bio */
+    text-align: center;
+    border-radius: 10px;
+    color: #ddd;
+}
+
+.bio-heading {
+    font-size: 30px;
+    font-weight: 700;
+    color: #31211b;
+    margin-bottom: 20px;
+}
+
+.bio-text {
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+.cta-button {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.cta-button .btn {
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(220, 227, 229);
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.cta-button .btn:hover {
+    background-color: #c5270e;
+}
+
+/* Mobile and Tablet Responsive Styles */
+@media (max-width: 768px) {
+    #typed-text {
+        font-size: 40px;
+    }
+
+    #home p {
+        font-size: 18px;
+    }
+
+    .bio-heading {
+        font-size: 26px;
+    }
+
+    .bio-text {
+        font-size: 16px;
+    }
+
+    .cta-button .btn {
+        font-size: 14px;
+    }
+}
+
+
+/* live animation  */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    color: #fff;
+    background: #000000;
+    font-family: 'Poppins',sans-serif;
+}
+
+
+
+
+/* @keyframes animBack {
+    0%{
+        top: -60px;
+    }
+    100%{
+        top: 120%;
+    }
+} */
+
+/* @keyframes backgroundAnimation {
+    0% {
+        background: #111;
+    }
+    50% {
+        background: #333;
+    }
+    100% {
+        background: #111;
+    }
+}
+
+body {
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    background: #111;
+    animation: backgroundAnimation 10s infinite alternate;
+} */
+
+@keyframes moveBall {
+    0% {
+        left: 0;
+        top: 50%;
+    }
+    50% {
+        left: 50%;
+        top: 10%;
+    }
+    100% {
+        left: 100%;
+        top: 50%;
+    }
+}
+
+.floating-ball {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 4px;
+    height: 4px;
+    background-color: #f39d48;
+    border-radius: 50%;
+    animation: moveBall 5s infinite ease-in-out;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ff6347; /* Color on hover */
 }

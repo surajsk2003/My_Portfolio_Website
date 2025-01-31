@@ -1,0 +1,57 @@
+{% extends 'new_app/base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+        <!-- Projects Section -->
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <p>Some of my projects...</p>
+
+        <div class="projects-container">
+            <!-- Project 1: Fastball Recap -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Fastball_Recap</h3>
+                </div>
+                <div class="project-description">
+                    <p>Challenge 2: Personalized Fan Highlights: Build a system that allows fans to select team(s), player(s), etc. to follow and create audio, video, and/or text digests that fans could receive on a regular cadence to stay up on the latest highlights and commentary. Ensure your solution supports fans who speak English, Spanish, and Japanese.</p>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/surajsk2003/Fastball_Recap.git" target="_blank">GitHub Repo</a>
+                </div>
+            </div>
+
+            <!-- Project 2: Chatterbot -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Chatterbot</h3>
+                </div>
+                <div class="project-description">
+                    <p>This project is a Python-based application that uses various libraries to create a robust solution, likely for NLP, machine learning, and data management tasks. The exact nature of the project will depend on the intended application and the use of various libraries like Django, ChatterBot, MongoDB, etc.</p>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/surajsk2003/chatter_bot.git" target="_blank">GitHub Repo</a>
+                </div>
+            </div>
+
+            <!-- Project 3: QA DOC -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>QA_DOCS</h3>
+                </div>
+                <div class="project-description">
+                    <p>QA_DOCS is a web-based application that allows users to upload documents and interact with them through AI-powered Q&A functionality. This application utilizes advanced machine learning models to analyze document content and respond to user queries with contextually relevant answers.</p>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/surajsk2003/QA_DOCS.git" target="_blank">GitHub Repo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock content %}

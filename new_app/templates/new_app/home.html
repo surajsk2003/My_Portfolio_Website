@@ -1,73 +1,82 @@
+{% extends 'new_app/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Portfolio{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'new_app/css/style.css' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Header Section -->
-    <header>
-        <div class="button-section">
-            <button onclick="document.getElementById('home').scrollIntoView({ behavior: 'smooth' });">Home</button>
-            <button onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' });">About</button>
-            <button onclick="document.getElementById('skills').scrollIntoView({ behavior: 'smooth' });">Skills</button>
-            <button onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });">Projects</button>
-            <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">Contact</button>
-        </div>
-        <div class="social-media-icons">
-            <!-- Add your social media icons here -->
-             <a href="#"><img src="{% static 'new_app/image/profile_picture.jpeg' %}" alt="Icon"></a>
-             <a href="#"><img src="{% static 'new_app/images/icon2.png' %}" alt="Icon"></a>
-             <a href="#"><img src="{% static 'new_app/images/icon3.png' %}" alt="Icon"></a>
-        </div>
-    </header>
 
-    <!-- Home Section -->
-    <section id="home" class="intro-container">
-        <h1>I am Suraj</h1>
-        <p>ML | AI Enthusiast | Developer</p>
-    </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Write about yourself here...</p>
-    </section>
+{% block content %}
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2>Skills</h2>
-        <p>List your skills here...</p>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>Showcase your projects here...</p>
-    </section>
+        <!-- Home Section -->
+        <section id="home" class="intro-container">
+            <h1 id="typed-text">I am Suraj</h1>
+            <p>ML & AI Enthusiast | Developer | Building Intelligent Solutions | AI: Unlocking Human Potential</p>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <form id="contactForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+    <!-- Bio Section Below Intro -->
+        <section id="bio-section" class="bio-container">
+            <h2 class="bio-heading">A Brief Introduction</h2>
+            <p class="bio-text">
+                Passionate about Artificial Intelligence and its real-world applications, I specialize in 
+                **Machine Learning, NLP, and AI-driven solutions**. Currently pursuing a BTech in Electrical Engineering at NITK, 
+                I aim to build innovative AI models that optimize efficiency and **solve complex challenges**. My mission is to 
+                contribute to impactful technological advancements for humanity.
+            </p>
+            <!-- CTA Button -->
+            <div class="cta-button">
+                <a href="{% static 'new_app/resume/my_resume.pdf' %}" class="btn" target="_blank">Download Resume</a>
+                <a href="{% url 'contact' %}" class="btn">Let's Connect</a>
+            </div>
+        </section>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const textArray = ["Suraj","Software Engineer", "Machine Engineer"]; // The phrases that will be typed and deleted
+            let textIndex = 0;
+            let letterIndex = 0;
+            let isDeleting = false;
+            let currentText = "";
+            
+            // Function to handle the typing and deleting effect
+            function type() {
+                const h1Element = document.getElementById("typed-text");
 
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
+                // Add or remove characters based on whether we're typing or deleting
+                if (!isDeleting) {
+                    // Typing mode
+                    currentText = "I am " + textArray[textIndex].substring(0, letterIndex); // Add "I am Suraj" at the beginning
+                    letterIndex++;
+                } else {
+                    // Deleting mode
+                    currentText = "I am " + textArray[textIndex].substring(0, letterIndex); // Add "I am Suraj" at the beginning
+                    letterIndex--;
+                }
 
-            <button type="submit">Send Message</button>
-        </form>
-        <p id="responseMessage"></p>
-    </section>
+                // Update the content of the h1 element
+                h1Element.textContent = currentText;
 
-    <script src="{% static 'new_app/js/script.js' %}"></script>
-</body>
-</html>
+                // If the text is fully typed out
+                if (letterIndex === textArray[textIndex].length && !isDeleting) {
+                    setTimeout(() => {
+                        isDeleting = true;
+                    }, 1000); // Pause before deleting
+                }
+
+                // If the text is fully deleted
+                if (letterIndex === 0 && isDeleting) {
+                    // Move to the next text in the array
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % textArray.length;
+                }
+
+                // Adjust typing speed based on whether typing or deleting
+                const typingSpeed = isDeleting ? 100 : 150;
+                setTimeout(type, typingSpeed); // Recursive call to continue the effect
+            }
+
+            // Start typing effect when the page is loaded
+            type();
+        });
+    </script>
+
+
+
+{% endblock content %}

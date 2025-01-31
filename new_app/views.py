@@ -8,6 +8,18 @@ from .models import ContactMessage  # Create this model
 def home(request):
     return render(request, 'new_app/home.html')
 
+def about(request):
+    return render(request, 'new_app/about.html')
+
+def projects(request):
+    return render(request, 'new_app/projects.html')
+
+def skills(request):
+    return render(request, 'new_app/skills.html')
+
+def contact(request):
+    return render(request, 'new_app/contact.html')
+
 # Handle form submission for contact messages
 @csrf_exempt  # If using an API client like Postman, otherwise remove this and use CSRF tokens
 def receive_message(request):
