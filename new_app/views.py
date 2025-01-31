@@ -19,9 +19,9 @@ def skills(request):
 
 def contact(request):
     return render(request, 'new_app/contact.html')
+from django.core.exceptions import ValidationError
+from django.core.validators import validate_email
 
-# Handle form submission for contact messages
-@csrf_exempt  # If using an API client like Postman, otherwise remove this and use CSRF tokens
 def receive_message(request):
     if request.method == "POST":
         try:
@@ -37,7 +37,13 @@ def receive_message(request):
             if not name or not email or not message:
                 return JsonResponse({"status": "failure", "error": "All fields are required."}, status=400)
 
-            # Save to database (if needed)
+            # Validate email format
+            try:
+                validate_email(email)
+            except ValidationError:
+                return JsonResponse({"status": "failure", "error": "Invalid email format."}, status=400)
+
+            # Save to database
             ContactMessage.objects.create(name=name, email=email, message=message)
 
             return JsonResponse({"status": "success", "response": "Message received successfully."}, status=201)
