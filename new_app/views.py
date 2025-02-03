@@ -3,6 +3,9 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from .models import ContactMessage  # Create this model
+from django.core.mail import send_mail
+
+from django.conf import settings
 
 # Render the single-page home view
 def home(request):
@@ -54,3 +57,22 @@ def receive_message(request):
             return JsonResponse({"status": "failure", "error": "An error occurred."}, status=500)
 
     return JsonResponse({"status": "failure", "error": "Invalid request method."}, status=405)
+
+def receive_message(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        name = data.get('name')
+        email = data.get('email')
+        message = data.get('message')
+
+        # Send the email to your personal email address
+        send_mail(
+            f"New message from {name}",
+            f"Message from {email}: {message}",
+            settings.EMAIL_HOST_USER,
+            [settings.EMAIL_HOST_USER],  # Send to your email
+            fail_silently=False,
+        )
+
+        return JsonResponse({'status': 'success'})
+    return JsonResponse({'status': 'error'})
