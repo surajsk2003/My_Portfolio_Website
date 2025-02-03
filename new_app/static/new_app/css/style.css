@@ -1,17 +1,22 @@
 /* Button styles */
 /* Ensures the header takes the full width */
 body {
-    background-image: url("{% static 'new_app/images/theeeee.jpg' %}");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    min-height: 100vh;
     margin: 0;
     font-family: 'Poppins', sans-serif;
     color: #630a0a;
     position: relative;
+    min-height: 100vh;
 }
+#bg-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;  /* Ensures background stays behind other content */
+}
+
+
 
 
 header {
@@ -21,7 +26,7 @@ header {
     justify-content: space-between; /* Aligns icons to the left and buttons to the right */
     padding: 10px 20px; /* Optional: adjusts the padding */
     background-color: transparent; /* Removes any background color/strip */
-    align-items: center; /* Centers the content vertically */
+    align-items: center; /* Centers the content vertically */ /* Adds space below the header */
 }
 
 
@@ -60,12 +65,12 @@ header img {
     text-decoration: none;
 }
 
-/* Animated button hover effect */
+/* Button Design */
 .button-section button,
 .nav-btn {
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 2px 4px;
+    font-size: 14px;
     background: linear-gradient(45deg, #007bff, #00b3ff);
     color: white;
     cursor: pointer;
@@ -81,33 +86,57 @@ header img {
 }
 
 
-/* Styling for Nav Buttons when inside links */
+
+/* Additional Gradient Button */
 .nav-btn {
-    display: inline-block;  /* Keeps buttons inline */
-    background-color: transparent;  /* No solid background */
-    border-radius: 5px;  /* Keeps consistent border radius */
-    padding: 10px 20px;
+    background-image: linear-gradient(to right, #283048 0%, #859398 51%, #283048 100%);
+    margin: 10px;
+    padding: 10px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
     color: white;
-    cursor: pointer;
-    font-size: 16px;
-    transition: 0.3s;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
 }
 
-/* Hover effect for nav buttons */
 .nav-btn:hover {
-    background-color: #0056b3;  /* Darken on hover */
-    box-shadow: 0 10px 20px rgba(120, 124, 129, 0.3);
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
 }
+
 
 /* Form styling */
+
+
+
+/* Contact Section Styles */
+.contact-section {
+    background-color: #FF9A8B;
+    background-image: -webkit-linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+    background-image: -moz-linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+    background-image: -o-linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+    background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+    
+    padding: 40px 20px;
+    text-align: center;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 100px auto 200px auto;
+}
+
+/* Styling the Form */
 form {
-    max-width: 500px;
-    margin: auto;
-    background: rgba(110, 232, 169, 0.9);
+    max-width: 600px;
+    margin: 30px auto;
+    background: rgba(20, 23, 21, 0.9);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-top: 30px; /* Adds space above the form */
+    color: #fff;
 }
 
 form input, form textarea {
@@ -116,6 +145,7 @@ form input, form textarea {
     margin: 10px 0;
     border-radius: 5px;
     border: 1px solid #050505;
+    background-color: #fff;
 }
 
 form button {
@@ -134,6 +164,22 @@ form button:hover {
     box-shadow: 0 10px 20px rgba(120, 124, 129, 0.3);
 }
 
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    text-align: left;
+}
+
+#responseMessage {
+    margin-top: 20px;
+    color: #28a745;
+    font-size: 16px;
+}
+
+
+
+
+
 /* Optional: Add some styling for other sections to make them consistent */
 
 /* General container styles */
@@ -141,11 +187,16 @@ form button:hover {
     padding: 40px;
 }
 
+
+
+
+
+
 /* Section specific styles */
 section {
-    margin: 30px 0;
+    margin: 100px 0;
     padding: 20px;
-    background-color: #FFFDD0;
+    background-color: #d0d2ff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -191,10 +242,18 @@ section p {
 
 /* Home Section Styling */
 
+
+
+
+
+
+
+
+
 /* Styling for the home-section div */
 .home-section {
-    width: 436px;  /* Fixed width */
-    height: 224px; /* Fixed height */
+    width: 336px;  /* Fixed width */
+    height: 124px; /* Fixed height */
     margin: 96px auto 30px auto; /* Top: 96px, Left and Right: auto (centered), Bottom: 30px */
     display: flex;
     justify-content: center;
@@ -209,50 +268,58 @@ section p {
 /* Styling for the Home Section */
 
 
-/* Styling for the Home Section */
-#home {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    box-sizing: border-box;
-}
 
-/* Styling for the h1 element */
-#typed-text {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #e8a20d;
-    margin: 0;
-    padding: 0;
-}
+
+
+
+
+
+
+
+
 
 
 /* About Section Styles */
 #about {
     padding: 20px;
-    background-color: #84debe;
+    background-color: #3EECAC;
+    background-image: -webkit-linear-gradient(19deg, #3EECAC 0%, #EE74E1 100%);
+    background-image: -moz-linear-gradient(19deg, #3EECAC 0%, #EE74E1 100%);
+    background-image: -o-linear-gradient(19deg, #3EECAC 0%, #EE74E1 100%);
+    background-image: linear-gradient(19deg, #3EECAC 0%, #EE74E1 100%);
+    
     text-align: center;
+    margin-top: 150px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 150px;
+
+    /* Optional: Add some animation to make the section more interesting */
+    
 }
+
+
+
+
+
 
 .about-container h2 {
     font-size: 2em;
-    color: #070606;
+    color: #e9efe5;
 }
 
 .about-container p {
     font-size: 1.1em;
     line-height: 1.6;
-    color: #0a0808;
+    color: #0c0c0c;
 }
 
 .about-rest {
     margin-top: 40px;
 }
-
+.Phases-of-My-Life {
+    color: white;
+}
 .phases-container {
     display: flex;
     justify-content: space-around;
@@ -262,7 +329,7 @@ section p {
     position: relative;
     height: 400px;
     width: 23%;
-    background-color: #FFFDD0;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(117,86,204,1) 0%, rgba(213,105,167,1) 90% );
     border: 2px solid #0e0e0e;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -273,7 +340,7 @@ section p {
 
 /* Front of the card (Year section) */
 .phase-year {
-    background-color: #007BFF;
+    background-image: linear-gradient( 177.5deg,  rgba(255,200,42,1) 28.3%, rgba(202,32,132,1) 79.8% );
     color: white;
     text-align: center;
     padding: 60px;
@@ -289,8 +356,8 @@ section p {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: wheat;
+    color: hsl(0, 0%, 5%);
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -307,7 +374,7 @@ section p {
     right: 0;
     text-align: center;
     padding: 70px;
-    background-color: #ec7a29;
+    background-color: #efa84b00;
     color: white;
     font-size: 1.1em;
     font-weight: normal;
@@ -340,15 +407,22 @@ section p {
 
 
 
-/* Skills Section */
+
 #skills {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 150px auto 300px auto;
     padding: 20px;
-    background-color: #e5dc71;
+    background-color: #FAD961;
+    background-image: -webkit-linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
+    background-image: -moz-linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
+    background-image: -o-linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
+    background-image: linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
+    
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
+/* Skills Section */
 
 h2 {
     text-align: center;
@@ -438,9 +512,14 @@ p {
 /* Projects Section */
 #projects {
     max-width: 900px;
-    margin: 0 auto;
+    margin: 150px auto 200px auto;
     padding: 20px;
-    background-color: #a3d458;
+    background-color: #FAACA8;
+    background-image: -webkit-linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%);
+    background-image: -moz-linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%);
+    background-image: -o-linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%);
+    background-image: linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%);
+    
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -467,7 +546,12 @@ p {
 
 /* Project Card */
 .project-card {
-    background-color: #d971ec;
+    background-color: #FEE140;
+    background-image: -webkit-linear-gradient(90deg, #FEE140 0%, #FA709A 100%);
+    background-image: -moz-linear-gradient(90deg, #FEE140 0%, #FA709A 100%);
+    background-image: -o-linear-gradient(90deg, #FEE140 0%, #FA709A 100%);
+    background-image: linear-gradient(90deg, #FEE140 0%, #FA709A 100%);
+    
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(169, 147, 147, 0.1);
@@ -520,7 +604,7 @@ p {
 }
 
 #Footer {
-    background-color: #bcc0bc; /* Dark theme */
+    background-color: transparent; /* Dark theme */
     color: #070606;
     padding: 40px 10%;
     display: flex;
@@ -540,7 +624,7 @@ p {
 .general h1, .important-links-certificates h1 {
     font-size: 22px;
     margin-bottom: 10px;
-    color: #ffcc00; /* Highlighted heading color */
+    color: #0000ff; /* Highlighted heading color */
 }
 
 .general p {
@@ -583,23 +667,35 @@ ul li a:hover {
         height: 35px;
     }
 }
-
 /* Intro Section Styles */
 #home {
-    background: url("{% static 'new_app/images/background.jpg' %}") no-repeat center center/cover; 
-    height: 100vh;
+    background-color: #4158D0;
+    background-image: -webkit-linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    background-image: -moz-linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    background-image: -o-linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    
+    padding: 60px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: #fff;
+    
+    width: 40vw; /* 100% of the viewport width */
+    height: 30vw; /* 100% of the viewport width, making the section square */
+    margin: 100px auto 300px auto; /* Centering the section */
 }
 
+
+/* Styling for the h1 element */
 #typed-text {
-    font-size: 50px;
-    font-weight: 700;
-    margin-bottom: 20px;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #f9f8fb;
+    margin: 0;
+    padding: 0;
 }
 
 #home p {
@@ -611,12 +707,24 @@ ul li a:hover {
 
 /* Bio Section Styles */
 #bio-section {
-    background-color: #7db8c2;
+    background-color: #FFFFFF;
+    background-image: -webkit-linear-gradient(180deg, #FFFFFF 0%, #6284FF 50%, #FF0000 100%);
+    background-image: -moz-linear-gradient(180deg, #FFFFFF 0%, #6284FF 50%, #FF0000 100%);
+    background-image: -o-linear-gradient(180deg, #FFFFFF 0%, #6284FF 50%, #FF0000 100%);
+    background-image: linear-gradient(180deg, #FFFFFF 0%, #6284FF 50%, #FF0000 100%);
+    
+
     padding: 60px 20px;
     margin-top: -50px; /* Pulling up to reduce gap between intro and bio */
     text-align: center;
     border-radius: 10px;
     color: #ddd;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow-wrap: break-word;
+    overflow-x: hidden;
+    margin-left: 120px;
+    margin-right: 120px;
+
 }
 
 .bio-heading {
@@ -683,7 +791,7 @@ ul li a:hover {
 /* live animation  */
 
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 *{
     margin: 0;
@@ -695,64 +803,27 @@ body{
     color: #fff;
     background: #000000;
     font-family: 'Poppins',sans-serif;
-}
-
-
-
-
-/* @keyframes animBack {
-    0%{
-        top: -60px;
-    }
-    100%{
-        top: 120%;
-    }
 } */
 
-/* @keyframes backgroundAnimation {
-    0% {
-        background: #111;
-    }
-    50% {
-        background: #333;
-    }
-    100% {
-        background: #111;
-    }
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body {
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-    background: #111;
-    animation: backgroundAnimation 10s infinite alternate;
-} */
 
-@keyframes moveBall {
-    0% {
-        left: 0;
-        top: 50%;
-    }
-    50% {
-        left: 50%;
-        top: 10%;
-    }
-    100% {
-        left: 100%;
-        top: 50%;
-    }
-}
 
-.floating-ball {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 4px;
-    height: 4px;
-    background-color: #f39d48;
-    border-radius: 50%;
-    animation: moveBall 5s infinite ease-in-out;
-}
+
+
+
+
+
+
+
+
+
 
 a {
     text-decoration: none;
@@ -772,6 +843,6 @@ a:hover {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    
+
 
 }
