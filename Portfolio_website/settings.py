@@ -13,16 +13,11 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-# Load .env file
+# Load environment variables from .env file
 load_dotenv()
 
-# Access email settings from the .env file
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')  # From .env
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  # From .env
+
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -33,12 +28,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-u(r!$@5h4!i#kls$4um(!%^8_-u)g)m2xfn!q)(__+0oc8n^(-"
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -61,6 +57,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+     "whitenoise.middleware.WhiteNoiseMiddleware",  # Add this for static file handling
 ]
 
 ROOT_URLCONF = "Portfolio_website.urls"
@@ -129,7 +126,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = '/static/'
+import os
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_URL = "/static/"
+
 # STATIC_ROOT = BASE_DIR / 'staticfiles'  # Correct way to set STATIC_ROOT
 
 
