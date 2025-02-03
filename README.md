@@ -64,7 +64,7 @@ My_Portfolio_Website/
 
 ## 📬 Contact
 For any queries, feel free to reach out:
-- 📧 Email: [your-email@example.com](surajkumarsksk2000@gmail.com)
+- 📧 Email: [surajkumarsksk2000@gmail.com]
 
 ## ⭐ Contribute
 Feel free to fork the repository and contribute improvements via pull requests!
